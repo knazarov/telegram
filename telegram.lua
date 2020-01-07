@@ -22,7 +22,7 @@ local function call(token, function_name, params)
       return data
    end
 
-   return nil, errors.new('TelegramError',
+   return nil, errors.new(string.format('TelegramError%s', data.error_code),
                           'Telegram request failed: %s', data.description)
 end
 

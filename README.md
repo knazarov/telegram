@@ -37,13 +37,13 @@ local BOT_TOKEN = 'my-bot-token'
 
 while true do
     -- use long-polling with 10-second timeout
-    local params = {timeout: 10}
+    local params = {timeout = 10}
 
     if update_id ~= 0 then
         params.offset = update_id + 1
     end
 
-    local res, err = telegram.call('getUpdates', params)
+    local res, err = telegram.call(BOT_TOKEN, 'getUpdates', params)
 
     if res == nil then
         print(err)
